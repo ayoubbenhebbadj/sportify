@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+:root {
+    --sportify-primary: #00BFFF; /* Deep Sky Blue - energetic accent */
+    --sportify-dark: #1a1a1a; /* Almost black for strong contrast */
+    --sportify-light-bg: #f0f2f5; /* Off-white for clean backgrounds */
+    --sportify-text-light: #ffffff; /* White text for dark backgrounds */
+    --sportify-text-dark: #333333; /* Darker grey for body text */
+    --sportify-secondary-btn: #6c757d; /* Standard grey for less prominent actions */
+    --sportify-success: #28a745;
+    --sportify-info: #17a2b8;
+    --sportify-danger: #dc3545;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--sportify-light-bg);
+    color: var(--sportify-text-dark);
+    line-height: 1.6;
+}
+
+h1, h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Bolder for impact */
+    color: var(--sportify-dark);
+    text-transform: uppercase; /* Gives a sporty, official feel */
+    letter-spacing: 1px;
+}
+
+.container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* --- Buttons --- */
+.btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px; /* Slightly rounded */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--sportify-primary);
+    border-color: var(--sportify-primary);
+    color: var(--sportify-text-light);
+    box-shadow: 0 4px 8px rgba(0, 191, 255, 0.2);
+}
+.btn-primary:hover {
+    background-color: #009acd; /* Slightly darker teal */
+    border-color: #009acd;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 191, 255, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--sportify-secondary-btn);
+    border-color: var(--sportify-secondary-btn);
+    color: var(--sportify-text-light);
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-info {
+    background-color: var(--sportify-info);
+    border-color: var(--sportify-info);
+    color: var(--sportify-text-light);
+}
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #138496;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: var(--sportify-success);
+    border-color: var(--sportify-success);
+    color: var(--sportify-text-light);
+}
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* --- Card Styling --- */
+.card {
+    border: none;
+    border-radius: 10px; /* More pronounced rounding */
+    background-color: var(--sportify-text-light); /* White background */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px); /* More noticeable lift */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.card-img-top {
+    width: 100%;
+    height: 220px; /* Slightly taller images */
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 25px; /* More padding */
+}
+
+.card-title {
+    color: var(--sportify-primary); /* Accent color for titles */
+    font-size: 1.4rem; /* Slightly larger title */
+    margin-bottom: 12px;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: var(--sportify-text-dark);
+    margin-bottom: 20px; /* More space below text */
+}
+
+.d-flex.justify-content-between {
+    gap: 10px; /* Space between buttons */
+}
+.d-flex.justify-content-between .btn {
+    flex: 1; /* Distribute space evenly */
+}
+
+/* --- Modal Styling --- */
+.modal-content {
+    border-radius: 12px; /* More rounded modal */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); /* Deeper shadow */
+    border: none;
+}
+
+.modal-header {
+    background-color: var(--sportify-dark); /* Dark header for a strong look */
+    color: var(--sportify-text-light);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: none;
+    padding: 20px;
+}
+
+.modal-title {
+    color: var(--sportify-text-light);
+    font-weight: 700;
+}
+
+.btn-close {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--sportify-text-light); /* White X */
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+.btn-close:hover {
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 30px;
+    background-color: var(--sportify-light-bg); /* Light background for form */
+}
+
+.form-label {
+    font-weight: 600; /* Bolder labels */
+    color: var(--sportify-dark);
+    margin-bottom: 8px;
+}
+
+.form-control, .form-select {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 12px 15px; /* More vertical padding */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--sportify-text-light); /* White input fields */
+    color: var(--sportify-text-dark);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--sportify-primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 191, 255, 0.25); /* Accent color glow */
+    outline: none; /* Remove default outline */
+}
+
+textarea.form-control {
+    min-height: 80px; /* Ensure textareas have enough height */
+    resize: vertical;
+}
+
+/* Custom Message Styling (for PHP session messages) */
+/* This part assumes your PHP echo statements for session messages
+   are directly inside a div within the .container.
+   If not, you might need to wrap them in a specific class. */
+.container > div:nth-of-type(3) { /* Targets the third direct child div within .container */
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Specific styles based on content for messages */
+/* IMPORTANT: These :contains() selectors are not standard CSS and won't work directly.
+   You'll need to wrap your PHP echoes in a div with a specific class like:
+   <div class="alert-message <?php echo isset($_SESSION['add']) ? 'alert-success' : ''; ?>">
+     <?php if(isset($_SESSION['add'])) { echo $_SESSION['add']; unset($_SESSION['add']); } ?>
+   </div>
+   And then apply styles to .alert-success, .alert-danger etc.
+   For now, I'll provide generic styles that will work if you add classes.
+*/
+.alert-message { /* Example class if you add it to your PHP message divs */
+    background-color: var(--sportify-light-bg);
+    color: var(--sportify-dark);
+    border: 1px solid #ddd;
+}
+
+.alert-success {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: var(--sportify-success);
+    border: 1px solid var(--sportify-success);
+}
+
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: var(--sportify-danger);
+    border: 1px solid var(--sportify-danger);
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .d-flex.justify-content-between .btn {
+        margin: 5px 0;
+    }
+    .card-img-top {
+        height: 180px; /* Slightly shorter on mobile */
+    }
+}

@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+:root {
+    --sportify-primary: #00BFFF;
+    --sportify-primary-gradient: linear-gradient(90deg, #00BFFF 0%, #009acd 100%);
+    --sportify-dark: #1a1a1a;
+    --sportify-light-bg: #f6fafd;
+    --sportify-text-light: #ffffff;
+    --sportify-text-dark: #222b45;
+    --sportify-secondary-btn: #6c757d;
+    --sportify-success: #28a745;
+    --sportify-info: #17a2b8;
+    --sportify-danger: #dc3545;
+    --sportify-shadow: 0 8px 32px rgba(0, 191, 255, 0.08), 0 1.5px 4px rgba(0,0,0,0.04);
+    --sportify-radius: 16px;
+    --sportify-card-radius: 18px;
+    --sportify-card-shadow: 0 8px 32px rgba(0, 191, 255, 0.10), 0 2px 8px rgba(0,0,0,0.06);
+    --sportify-card-hover-shadow: 0 16px 40px rgba(0, 191, 255, 0.18), 0 4px 16px rgba(0,0,0,0.10);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--sportify-light-bg);
+    color: var(--sportify-text-dark);
+}
+
+h2, h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--sportify-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 15px;
+    background: var(--sportify-text-light);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+#calendar {
+    background: var(--sportify-light-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,191,255,0.08);
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.btn-primary, .btn-success {
+    background: var(--sportify-primary-gradient);
+    border: none;
+    color: var(--sportify-text-light);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.btn-primary:hover, .btn-success:hover {
+    background: linear-gradient(90deg, #009acd 0%, #00BFFF 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 18px rgba(0,191,255,0.18);
+}
+
+.btn-secondary {
+    background-color: var(--sportify-secondary-btn);
+    border: none;
+    color: var(--sportify-text-light);
+    border-radius: 8px;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-danger {
+    background-color: var(--sportify-danger);
+    border: none;
+    color: var(--sportify-text-light);
+    border-radius: 8px;
+}
+.btn-danger:hover {
+    background-color: #b52a37;
+}
+
+.modal-content {
+    border-radius: 10px;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1.5px solid #e2e8f0;
+    padding: 14px 18px;
+    background-color: var(--sportify-text-light);
+    color: var(--sportify-text-dark);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05em;
+    margin-bottom: 1.2em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--sportify-primary);
+    box-shadow: 0 0 0 0.18rem rgba(0,191,255,0.13);
+    outline: none;
+}
+
+label {
+    font-weight: 600;
+    color: var(--sportify-dark);
+    margin-bottom: 8px;
+}
+
+.fc-event {
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    color: inherit !important;
+    background: none !important;
+    background-color: inherit !important;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Remove default background for all events to allow JS coloring */
+.fc-unthemed .fc-event {
+    background: none !important;
+    background-color: inherit !important;
+    color: inherit !important;
+    border: none !important;
+}
+
+/* Custom reservation status colors */
+.fc-event.res-status-pending,
+.fc-unthemed .fc-event.res-status-pending {
+    background-color: #fffbe6 !important; /* very light yellow */
+    color: #856404 !important;
+}
+.fc-event.res-status-rejected,
+.fc-unthemed .fc-event.res-status-rejected {
+    background-color: #ffeaea !important; /* very light red */
+    color: #a94442 !important;
+}
+.fc-event.res-status-approved,
+.fc-unthemed .fc-event.res-status-approved {
+    background-color: #e0f8d8 !important; /* very light green */
+    color: #155724 !important;
+}
+
+.fc-unthemed .fc-today {
+    background: rgba(0,191,255,0.08);
+}
+
+.fc-unthemed .fc-toolbar {
+    font-family: 'Poppins', sans-serif;
+}
+
+.fc-unthemed .fc-button {
+    background: var(--sportify-primary);
+    border: none;
+    color: var(--sportify-text-light);
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.fc-unthemed .fc-button:hover {
+    background: #009acd;
+}
+
+.modal-title {
+    color: var(--sportify-primary);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px 5px;
+    }
+    #calendar {
+        padding: 5px;
+    }
+}

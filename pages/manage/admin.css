@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+/* Variables CSS pour une meilleure maintenabilité */
+:root {
+  --primary-color: #1e3a8a;
+  --primary-hover: #3b82f6;
+  --secondary-color: #ffffff;
+  --text-color: #2c2c2c;
+  --light-gray: #e0e0e0;
+  --success-color: #10b981;
+  --success-hover: #059669;
+  --warning-color: #facc15;
+  --danger-color: #ef4444;
+  --danger-hover: #dc2626;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 4px;
+
+  --sportify-primary: #00BFFF;
+  --sportify-dark: #1a1a1a;
+  --sportify-light-bg: #f0f2f5;
+  --sportify-text-light: #ffffff;
+  --sportify-text-dark: #333333;
+  --sportify-secondary-btn: #6c757d;
+  --sportify-success: #28a745;
+  --sportify-info: #17a2b8;
+  --sportify-danger: #dc3545;
+}
+
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--sportify-text-dark);
+  background-color: var(--sportify-light-bg);
+  padding-top: 70px; /* Pour compenser le header fixe */
+}
+
+/* NE PAS MODIFIER LE HEADER - Début */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notification-button {
+  position: absolute;
+  right: 200px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #2c2c2c;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.logout-button {
+  position: absolute;
+  right: 60px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #2c2c2c;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.notification-button:hover,
+.logout-button:hover {
+  color: var(--sportify-primary);
+}
+
+.notification-count {
+  background-color: var(--sportify-danger);
+  color: var(--sportify-text-light);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50%;
+}
+
+.logo {
+  position: absolute;
+  right: 1320px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #353535;
+}
+
+.search-bar {
+  position: relative;
+  width: 250px;
+  right: -800px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.search-bar input:focus {
+  border-color: var(--sportify-primary);
+  box-shadow: 0 0 8px rgba(0,191,255,0.2);
+}
+
+.search-bar button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.75rem 0.5rem;
+  background: transparent;
+  color: #2c2c2c;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search-bar button:hover {
+  color: var(--sportify-primary);
+}
+
+.search-bar button i {
+  font-size: 1rem;
+}
+
+.home-link a {
+  position: relative;
+  right: 1050px;
+  text-decoration: none;
+  color: var(--sportify-primary);
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.home-link a:hover {
+  color: #009acd;
+}
+
+.home-link i {
+  margin-right: 0.5rem;
+}
+
+.sidebar {
+  top: 10%;
+  width: 225px;
+  background-color: var(--sportify-text-light);
+  color: var(--sportify-dark);
+  padding: 1rem;
+  height: 100vh;
+  position: fixed;
+}
+
+.sidebar h1 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 1rem 0;
+}
+
+.sidebar ul li a {
+  color: var(--sportify-dark);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  background-color: var(--sportify-primary);
+  color: var(--sportify-text-light);
+}
+
+.sidebar ul li a i {
+  margin-right: 0.75rem;
+}
+
+/* Main Content */
+
+
+
+.main-content {
+  margin-left: 220px; /* Largeur de la sidebar + espace */
+  margin-top: 1rem;
+  padding: 2rem;
+  background: var(--sportify-text-light);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Additional styles for the dashboard boxes */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.dashboard-box {
+  background: var(--sportify-text-light);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.dashboard-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-box i {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: var(--sportify-primary);
+}
+
+.dashboard-box h3 {
+  margin-bottom: 15px;
+  color: var(--sportify-dark);
+  font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-box p {
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+.dashboard-btn {
+  background-color: var(--sportify-primary);
+  color: var(--sportify-text-light);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.dashboard-btn:hover {
+  background-color: #009acd;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 80%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close {
+  color: #444;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.btn-ajouter {
+  background-color: var(--sportify-success);
+  color: var(--sportify-text-light);
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.table-utilisateurs {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-utilisateurs th, .table-utilisateurs td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.table-utilisateurs th {
+  background-color: var(--sportify-primary);
+  color: var(--sportify-text-light);
+}

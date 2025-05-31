@@ -1,0 +1,755 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* --- Sticky Navbar --- */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 3%; /* Adjusted padding */
+    height: 70px; /* More compact navbar */
+    transition: background 0.3s ease; /* Smooth background transition */
+}
+
+.logo a img {
+    height: 50px; /* Adjusted logo size */
+    cursor: pointer;
+}
+
+.nav_links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* Adjusted gap */
+}
+
+.links a {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links a:hover,
+.links a.active {
+    color: lightgreen;
+}
+
+.btn {
+    padding: 0.7rem 1.5rem; /* Adjusted button padding */
+    background-color: lightgreen;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: rgb(12, 66, 12);
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align text to the left initially */
+    padding: 0;
+    text-align: left;
+    flex-wrap: wrap;
+    margin-top: 70px; /* Adjust for the new navbar height */
+    min-height: 85vh; /* Slightly taller hero */
+    width: 100%;
+    overflow: hidden;
+}
+
+.welcome-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.welcome-img img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    animation: pan 20s infinite alternate ease-in-out; /* Subtle image pan animation */
+}
+
+@keyframes pan {
+    0% { transform: scale(1.05); transform-origin: center; }
+    100% { transform: scale(1.1); transform-origin: center; }
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: -1;
+}
+
+.writing-section {
+    max-width: 600px; /* Slightly wider text area */
+    padding: 2rem; /* Increased padding */
+    background: rgba(0, 0, 0, 0.6); /* Slightly darker background */
+    border-radius: 8px;
+    color: white;
+    position: relative;
+    left: 10%;
+    bottom: 10%; /* Move text slightly higher */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out 0.5s forwards; /* Fade in animation */
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.writing-section h1 {
+    font-size: 2.8rem; /* Slightly larger title */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Add text shadow */
+}
+
+.writing-section p {
+    font-size: 1.1rem;
+    color: #eee;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.writing-section a {
+    display: inline-block; /* Make it a block-level element for better spacing */
+    padding: 0.8rem 2rem;
+    border: 2px solid lightgreen;
+    border-radius: 5px;
+    text-decoration: none;
+    color: lightgreen;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-weight: 600;
+}
+
+.writing-section a:hover {
+    background-color: lightgreen;
+    color: black;
+    border-color: lightgreen;
+}
+
+/* --- Stadium Section --- */
+.reversed {
+    padding: 4rem 5%; /* Add padding around the section */
+    text-align: center; /* Center the heading */
+}
+
+.reversed h1 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    position: relative; /* For the underline animation */
+    display: inline-block;
+    color: #333;
+}
+
+.reversed h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px; /* Adjust underline position */
+    width: 0;
+    height: 3px;
+    background-color: lightgreen;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+.reversed h1:hover::after {
+    width: 60%; /* Slightly wider underline on hover */
+}
+
+.stadium-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Wider minimum width */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto 0; /* Add top margin */
+}
+
+.stadium {
+    text-align: center;
+    border-radius: 12px; /* More rounded corners */
+    overflow: hidden;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    transition: transform 0.3s ease-in-out;
+    background-color: white; /* Add a background color */
+    position: relative; /* For absolute positioning of details */
+}
+
+.stadium:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+.stadium img {
+    width: 100%;
+    height: 220px; /* Slightly taller images */
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out; /* Image zoom on hover */
+}
+
+.stadium:hover img {
+    transform: scale(1.05);
+}
+
+.stadium p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1.2rem; /* Increased padding */
+    margin: 0;
+    color: #333;
+}
+
+.stadium .view-more-btn {
+    padding: 0.7rem 1.5rem;
+    background-color: lightgreen;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+.stadium .view-more-btn:hover {
+    background-color: rgb(12, 66, 12);
+    color: white;
+}
+
+.stadium .stadium-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1rem;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-top: 1px solid lightgreen;
+    border-radius-bottom-left: 12px;
+    border-radius-bottom-right: 12px;
+}
+
+.stadium:hover .stadium-details {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.stadium .stadium-details p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #eee;
+}
+
+.stadium .stadium-details .book-now-btn {
+    padding: 0.7rem 1.5rem;
+    background-color: lightgreen;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.stadium .stadium-details .book-now-btn:hover {
+    background-color: rgb(12, 66, 12);
+    color: white;
+}
+
+
+/* --- Reviews Section --- */
+.rev {
+    padding: 4rem 5%;
+    text-align: center;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.rev h1 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    color: #333;
+}
+
+.rev h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0;
+    height: 3px;
+    background-color: lightgreen;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+.rev h1:hover::after {
+    width: 60%;
+}
+
+.reviews {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem; /* Increased gap */
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.review {
+    background: white;
+    padding: 2rem;
+    width: 320px; /* Slightly wider review boxes */
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.review:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+}
+
+.profile {
+    width: 90px; /* Slightly larger profile image */
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.2rem;
+    border: 3px solid lightgreen; /* Highlight border */
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review h3 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.job-title {
+    font-size: 0.95rem;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+}
+
+.stars {
+    font-size: 1.3rem;
+    color: #ffcc00;
+    margin-bottom: 0.8rem;
+}
+
+.review-text {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- Services Section --- */
+#services {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+#services h1 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    color: #333;
+}
+
+#services h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0;
+    height: 3px;
+    background-color: lightgreen;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+#services h1:hover::after {
+    width: 60%;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: lightgreen;
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+
+/* --- Contact Section --- */
+#contact {
+    padding: 4rem 5%;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+#contact h1 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    color: #333;
+}
+
+#contact h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0;
+    height: 3px;
+    background-color: lightgreen;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+#contact h1:hover::after {
+    width: 60%;
+}
+
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.contact-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.contact-list i {
+    font-size: 1.5rem;
+    color: lightgreen;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: lightgreen;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 0.8rem 2rem;
+    background-color: lightgreen;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+.contact-form button:hover {
+    background-color: rgb(12, 66, 12);
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: #333; /* Darker footer */
+    color: #eee;
+    padding: 4rem 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 280px; /* Wider minimum width */
+    margin-bottom: 2rem;
+    text-align: left; /* Align text in footer sections to the left */
+}
+
+.footer-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    color: lightgreen;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: lightgreen;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: flex-start; /* Align social icons to the left */
+}
+
+.social-icons a img {
+    width: 35px; /* Slightly larger icons */
+    height: 35px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    border-top: 1px solid #555;
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+    font-size: 0.9rem;
+    color: #888;
+    text-align: center;
+}
+
+/* --- Responsive Fixes --- */
+@media (max-width: 768px) {
+    .hero {
+        justify-content: center; /* Center text on smaller screens */
+        text-align: center;
+        padding-top: 70px;
+    }
+
+    .writing-section {
+        width: 90%;
+        left: 5%;
+        bottom: 5%; /* Adjust bottom position */
+    }
+
+    .nav_links {
+        gap: 1rem;
+    }
+
+    .stadium-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .reviews {
+        gap: 1.5rem;
+    }
+
+    .footer-container {
+        text-align: center; /* Center footer content on smaller screens */
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-form {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
